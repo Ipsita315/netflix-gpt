@@ -5,9 +5,9 @@
 }
 
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
-  max-width: 1082px;
+  // max-width: 1082px;
   padding-left: 3rem;
   padding-right: 3rem;
   padding-top: 1.5rem;
@@ -17,6 +17,7 @@ header {
   left: 0;
   right: 0;
   z-index: 1000;
+  background: linear-gradient(180deg,#333,transparent);
 }
 
 .bg-img {
@@ -101,4 +102,35 @@ header {
   padding: 6px 12px;
   border-radius: 4px;
   text-align: center;
+}
+
+.main-container {
+  position: relative;
+  height: 56.25vw;
+
+  .video-details-sec {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 400px;
+    left: 50px;
+  }
+
+  .video-details__desc {
+    color: #fff;
+    font-size: 1.2vw;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 0.1vw;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  }
+
+  .video-details__title {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 0.1vw;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  }
 }

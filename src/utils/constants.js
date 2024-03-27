@@ -1,0 +1,1 @@
+export const USER_AVATAR = "https://occ-0-4995-2186.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABYdTWLouyOMohDz0esU-I0n2rmcj_FNpO4Iip9Bchr659DtRiu5khGH-EnpU2WsQ6BMPrxotCac42bWrEu8wvzKdg8d_nXs.png?r=214";

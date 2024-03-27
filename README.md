@@ -18,3 +18,10 @@
 - Bug fix - sign up user display name
 - Bug fix - routing - only signed in user can access /browse page,        otherwsie redirect to / page
 - (Hygiene Practice) - Unsubscribing the onAuthStateChanged() whenever the Header component unmounts. 
+- Removed hardcoded strings and maintaining them in a dedicated constants file.
+- Register on TMDB site, create an app, grt API key and access token.
+- Get Data from TMDB now playing movies data list API.
+- Created Movies Slice
+- Created Custom hook for nowPlayingMovies
+- Planning for Main container and secondary container
+- Embedded youtube video , made it to autoplay on page load on mute
