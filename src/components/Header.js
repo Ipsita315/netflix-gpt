@@ -5,11 +5,15 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../utils/redux/userSlice';
 import { USER_AVATAR } from '../utils/constants';
+import { toggleGptSearch } from '../utils/redux/GptSlice';
+import { changeLanguage } from '../utils/redux/configSlice';
+import { SUPPORTED_LANGS } from "../utils/languageConstants";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userInfo = useSelector((store) => store.user);
+  const gptSearchActive = useSelector(store => store.gpt.gptSearchActive);
 
   const handleLogoutClick = () => {
     signOut(auth).then(() => {
@@ -18,6 +22,10 @@ const Header = () => {
       // An error happened.
       navigate("/error")
     });
+  };
+
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearch());
   };
 
   useEffect(() => {
@@ -38,6 +46,11 @@ const Header = () => {
     return () => { unsubscribe() };
   }, []);
 
+  const handleLanguageChange = (selectedVal) => {
+    dispatch(changeLanguage(selectedVal));
+    console.log(selectedVal);
+  };
+
   return (
     <header>
       <div className='flex justify-between align-baseline'>
@@ -48,14 +61,25 @@ const Header = () => {
 
         {userInfo &&
           <div>
-            <span>{userInfo.displayName}</span>
+            {
+              gptSearchActive &&
+              (<select className='mr-3 lang-selector' onChange={(e) => handleLanguageChange(e.target.value)}>
+                {
+                  SUPPORTED_LANGS.map(lang => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)
+                }
+              </select>)
+            }
+            <button onClick={handleGptSearchClick} className='gpt-search-btn mr-3'>
+              {gptSearchActive ? "Home Page" : "GPT Search"}
+            </button>
+            <span className='text-white'>{userInfo.displayName}</span>
             <img className='m-3 inline-block' alt="user avatar" src={USER_AVATAR} />
             <button className='logout-btn' onClick={handleLogoutClick}>Log out</button>
           </div>
         }
       </div>
 
-    </header>
+    </header >
   )
 }
 

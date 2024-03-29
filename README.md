@@ -25,3 +25,6 @@
 - Created Custom hook for nowPlayingMovies
 - Planning for Main container and secondary container
 - Embedded youtube video , made it to autoplay on page load on mute
+- Created GPT Search Page
+-Created GPT Search Bar
+- Added mutli-lingual capabilities to GPT search bar 
